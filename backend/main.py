@@ -7,6 +7,17 @@ from database import engine, get_db
 from auth import hash_password, verify_password, create_access_token
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://joyful-basbousa-86c009.netlify.app",
+        "https://rainbow-bavarois-d59b54.netlify.app",
+        "http://localhost:3000",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
